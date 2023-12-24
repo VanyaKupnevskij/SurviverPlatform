@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5181181534347513235}
   - component: {fileID: 6130519544860592683}
   - component: {fileID: 2452030171789272561}
+  - component: {fileID: 4409521017873488514}
   m_Layer: 0
   m_Name: BulletEnemy
   m_TagString: Untagged
@@ -98,7 +99,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4289062978087831282}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 0.50000006
+  m_Radius: 0.32
   m_Speed: 1.2
   m_Acceleration: 8
   avoidancePriority: 50
@@ -175,6 +176,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDead: 7
+  destroyable: {fileID: 6130519544860592683}
+--- !u!114 &4409521017873488514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289062978087831282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc1f7ac96de6934c8838367e8fc4a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
+  whoDamaged: Player
   destroyable: {fileID: 6130519544860592683}
 --- !u!1 &6406211244611526133
 GameObject:

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,23 +8,27 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject textUlta;
     [SerializeField] private GameObject textDead;
 
-    public PlayerManager playerManager;
+    public Player playerManager;
+
+    private float Health => playerManager.Health.Value;
+    private float Energy => playerManager.Energy.Value;
+    private float MaxEnergy => playerManager.Energy.maxValue;
 
     private void Start()
     {
-        playerManager = playerManager ?? FindObjectOfType<PlayerManager>();
+        playerManager = playerManager ?? FindObjectOfType<Player>();
 
-        playerManager.OnChangeHP += HandleChangeHP;
-        playerManager.OnChangeEnergy += HandleChangeEnergy;
-        playerManager.OnAccamulateUlta += HandleAccamulateUlta;
-        playerManager.OnDead += HandleDead;
+        playerManager.Health.OnChange += HandleChangeHP;
+        playerManager.Health.OnDead += HandleDead;
+        playerManager.Energy.OnChange += HandleChangeEnergy;
+        playerManager.Energy.OnAccamulateUlta += HandleAccamulateUlta;
     }
 
     private void HandleChangeHP(float newValue)
     {
         sliderHP.value = newValue;
 
-        if (playerManager.Health > 0)
+        if (Health > 0)
         {
             textDead.SetActive(false);
         }
@@ -36,7 +38,7 @@ public class PlayerUI : MonoBehaviour
     {
         sliderEnergy.value = newValue;
 
-        if (playerManager.Energy < playerManager.maxEnergy)
+        if (Energy < MaxEnergy)
         {
             textUlta.SetActive(false);
         }

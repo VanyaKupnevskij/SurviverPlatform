@@ -19,6 +19,14 @@ public class EnemyManager : MonoBehaviour
         var enemiesObject = GameObject.FindGameObjectsWithTag("Enemy");
         var moveisToPlayerObject = FindObjectsByType<MoveTo>(FindObjectsSortMode.None);
 
+        foreach (var enemy in enemiesObject)
+        {
+            if (enemy.TryGetComponent<SpawnerBullet>(out SpawnerBullet spawnerBullet))
+            {
+                spawnerBullet.OnInstantiateBullet += HandleInstantiateBullet;
+            }
+        }
+
         enemies.AddRange(enemiesObject.Select(enemy => enemy.transform));
         moviesToPlayer.AddRange(moveisToPlayerObject.Where(moveTo => moveTo.whoFollow == WhoFollow.Player));
 
@@ -88,5 +96,12 @@ public class EnemyManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void HandleInstantiateBullet(GameObject bullet)
+    {
+        MoveTo moveTo = bullet.GetComponent<MoveTo>();
+        moveTo.Target = player;
+        moviesToPlayer.Add(moveTo);
     }
 }

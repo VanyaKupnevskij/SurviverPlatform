@@ -315,8 +315,10 @@ GameObject:
   - component: {fileID: 7371344965160369022}
   - component: {fileID: 3396784239095976186}
   - component: {fileID: 4109452965802007910}
-  - component: {fileID: 2789271016818986714}
   - component: {fileID: 3257211837423467192}
+  - component: {fileID: 8401097888657727876}
+  - component: {fileID: 8158946563409328000}
+  - component: {fileID: 2789271016818986714}
   m_Layer: 0
   m_Name: BlueEnemy
   m_TagString: Enemy
@@ -428,8 +430,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2789271016818986714}
   extraRotationSpeed: 0
+  minDistanceVoid: 0.1
   canFollowVoid: 0
   whoFollow: 0
+  destroyable: {fileID: 3257211837423467192}
+--- !u!114 &3257211837423467192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476652853115816285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db247cb76eaa4ef46a17a53ae0311710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8401097888657727876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476652853115816285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dad228433dde4149a75f4768b082d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefub: {fileID: 4289062978087831282, guid: 02feeadb330f9aa46802354c76ab1f70, type: 3}
+  capacity: 30
+  parentBullets: {fileID: 0}
+--- !u!114 &8158946563409328000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476652853115816285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d84d29abd6f7f842be69aeef4bcfbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyable: {fileID: 3257211837423467192}
+  spawnerBullet: {fileID: 8401097888657727876}
+  intervalFire: 3
 --- !u!195 &2789271016818986714
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -452,18 +498,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3257211837423467192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7476652853115816285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db247cb76eaa4ef46a17a53ae0311710, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8004446314924151399
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +598,6 @@ GameObject:
   - component: {fileID: 334646344321823029}
   - component: {fileID: 8394467460172269141}
   - component: {fileID: 4727435442964192930}
-  - component: {fileID: 655264725508394706}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -637,24 +670,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &655264725508394706
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8711738021096701633}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

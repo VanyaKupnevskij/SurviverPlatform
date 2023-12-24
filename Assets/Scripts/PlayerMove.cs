@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
 
     public Action<Vector3> OnGoOutside;
+    public bool canControl = true;
 
     private Vector3 velocity;
     private bool isGrounded;
@@ -22,6 +23,12 @@ public class PlayerMove : MonoBehaviour
     }
 
     void Update()
+    {
+        if (canControl) 
+            Movement();
+    }
+
+    private void Movement()
     {
         isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
@@ -38,10 +45,8 @@ public class PlayerMove : MonoBehaviour
             controller.Move(transform.forward * Time.deltaTime * speedMove);
         }
 
-
         velocity.y += gravityValue * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        
     }
 
     public void TeleportTo(Vector3 pos)

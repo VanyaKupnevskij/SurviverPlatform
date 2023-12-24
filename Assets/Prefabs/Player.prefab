@@ -208,10 +208,11 @@ GameObject:
   - component: {fileID: 2477501046583842852}
   - component: {fileID: 3329831179224442128}
   - component: {fileID: 1958081463643464462}
-  - component: {fileID: 6406413629204409876}
+  - component: {fileID: 1577140548413598845}
+  - component: {fileID: 7904329609647661235}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,6 +326,7 @@ MonoBehaviour:
   speedMove: 1.5
   speedRotate: 7
   playerInput: {fileID: 1958081463643464462}
+  canControl: 1
 --- !u!114 &1958081463643464462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +361,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6406413629204409876
+--- !u!114 &1577140548413598845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,9 +370,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2440189617380520560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db247cb76eaa4ef46a17a53ae0311710, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f99fffeef8bd674fa23e4587df16beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7904329609647661235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2440189617380520560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176da3dc5b6d1534eb62e4627749a424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderHP: {fileID: 5623888349027294836}
+  sliderEnergy: {fileID: 8004203096437195918}
+  textUlta: {fileID: 7655100244804303899}
+  textDead: {fileID: 6696743141309740766}
+  playerManager: {fileID: 0}
 --- !u!1 &2821553218958570524
 GameObject:
   m_ObjectHideFlags: 0
