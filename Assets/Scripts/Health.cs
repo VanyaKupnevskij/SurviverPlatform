@@ -18,6 +18,13 @@ public class Health
         Value = maxValue;
     }
 
+    public void Dead()
+    {
+        Value = 0;
+        OnChange(Value);
+        OnDead();
+    }
+
     public void TakeDamage(float damage = 15)
     {
         Value -= damage;

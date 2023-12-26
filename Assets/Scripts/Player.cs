@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        playerMove = playerMove ?? FindObjectOfType<PlayerMove>();
-        playerDestroyable = playerDestroyable ?? GetComponent<DestroyablePlayer>();
+        playerMove = playerMove ? playerMove : FindObjectOfType<PlayerMove>();
+        playerDestroyable = playerDestroyable ? playerDestroyable : GetComponent<DestroyablePlayer>();
 
         playerDestroyable.OnTakeDamage += Health.TakeDamage;
         playerDestroyable.OnDecreaseEnergy += Energy.Decrease;

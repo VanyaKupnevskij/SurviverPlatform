@@ -16,7 +16,7 @@ public class PlayerUI : MonoBehaviour
 
     private void Start()
     {
-        playerManager = playerManager ?? FindObjectOfType<Player>();
+        playerManager = playerManager ? playerManager : FindObjectOfType<Player>();
 
         playerManager.Health.OnChange += HandleChangeHP;
         playerManager.Health.OnDead += HandleDead;

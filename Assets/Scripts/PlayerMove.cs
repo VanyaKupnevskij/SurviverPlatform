@@ -18,8 +18,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
-        controller = controller ?? GetComponent<CharacterController>();
-        playerInput = playerInput ?? GetComponent<PlayerInput>();
+        controller = controller ? controller : GetComponent<CharacterController>();
+        playerInput = playerInput ? playerInput : GetComponent<PlayerInput>();
     }
 
     void Update()

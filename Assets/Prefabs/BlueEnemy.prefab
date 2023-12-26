@@ -335,7 +335,7 @@ Transform:
   m_GameObject: {fileID: 7476652853115816285}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.26, z: -1.72}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3131, y: 0.3131, z: 0.3131}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefub: {fileID: 4289062978087831282, guid: 02feeadb330f9aa46802354c76ab1f70, type: 3}
   capacity: 30
-  parentBullets: {fileID: 0}
+  intervalFire: 3
 --- !u!114 &8158946563409328000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,7 +475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyable: {fileID: 3257211837423467192}
   spawnerBullet: {fileID: 8401097888657727876}
-  intervalFire: 3
 --- !u!195 &2789271016818986714
 NavMeshAgent:
   m_ObjectHideFlags: 0

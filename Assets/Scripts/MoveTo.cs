@@ -23,8 +23,8 @@ public class MoveTo : MonoBehaviour
 
     private void Start()
     {
-        agent = agent ?? GetComponent<NavMeshAgent>();
-        destroyable = destroyable ?? GetComponent<Destroyable>();
+        agent = agent ? agent : GetComponent<NavMeshAgent>();
+        destroyable = destroyable ? destroyable : GetComponent<Destroyable>();
     }
 
     private void Update()

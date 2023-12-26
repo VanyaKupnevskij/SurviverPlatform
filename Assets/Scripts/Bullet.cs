@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        destroyable = destroyable ?? GetComponent<Destroyable>();
+        destroyable = destroyable ? destroyable : GetComponent<Destroyable>();
     }
 
     private void OnTriggerEnter(Collider other)

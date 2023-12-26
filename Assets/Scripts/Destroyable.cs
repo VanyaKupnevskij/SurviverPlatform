@@ -4,6 +4,7 @@ using UnityEngine;
 public class Destroyable : MonoBehaviour
 {
     public Action<float> OnTakeDamage;
+    public Action OnDestorySelf;
 
     public void InitSelf()
     {
@@ -12,6 +13,7 @@ public class Destroyable : MonoBehaviour
     
     public void DestroySelf()
     {
+        OnDestorySelf();
         gameObject.SetActive(false);
     }
 

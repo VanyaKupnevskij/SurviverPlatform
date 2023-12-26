@@ -6,7 +6,7 @@ public class LookAt : MonoBehaviour
 
     private void Start()
     {
-        target = target ?? Camera.main.transform;
+        target = target ? target : FindAnyObjectByType<Camera>().transform;
     }
 
     void Update()

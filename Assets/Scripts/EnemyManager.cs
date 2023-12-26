@@ -4,30 +4,22 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] private SpawnerEnemy spawnerEnemy;
     [SerializeField] private Transform voidTransform;
     [SerializeField] private Transform player;
     [SerializeField] private float radiusEnemiesZone = 2.5f;
     [SerializeField] private float radiusPlatform = 5.0f;
     [SerializeField] private float radiusVoidTargeted = 1.0f;
 
-    private List<Transform> enemies = new List<Transform>();
     private List<MoveTo> moviesToPlayer = new List<MoveTo>();
-    private List<Circle> enemiesZone = new List<Circle>();
 
     private void Start()
     {
-        var enemiesObject = GameObject.FindGameObjectsWithTag("Enemy");
         var moveisToPlayerObject = FindObjectsByType<MoveTo>(FindObjectsSortMode.None);
+        spawnerEnemy = spawnerEnemy ? spawnerEnemy : GetComponent<SpawnerEnemy>();
 
-        foreach (var enemy in enemiesObject)
-        {
-            if (enemy.TryGetComponent<SpawnerBullet>(out SpawnerBullet spawnerBullet))
-            {
-                spawnerBullet.OnInstantiateBullet += HandleInstantiateBullet;
-            }
-        }
+        spawnerEnemy.OnSpawnStack += HandleSpawnStaskEnemy;
 
-        enemies.AddRange(enemiesObject.Select(enemy => enemy.transform));
         moviesToPlayer.AddRange(moveisToPlayerObject.Where(moveTo => moveTo.whoFollow == WhoFollow.Player));
 
         moviesToPlayer.ForEach(enemy => enemy.Target = player);
@@ -51,7 +43,7 @@ public class EnemyManager : MonoBehaviour
         const int Limit_Search = 30;
         List<Circle> enemiesZone = new List<Circle>();
 
-        enemiesZone = ScanEnemiesZone(enemies);
+        enemiesZone = ScanEnemiesZone(spawnerEnemy.enemies);
 
         do
         {
@@ -64,13 +56,13 @@ public class EnemyManager : MonoBehaviour
         return result;
     }
 
-    private List<Circle> ScanEnemiesZone(List<Transform> enemies)
+    private List<Circle> ScanEnemiesZone(List<GameObject> enemies)
     {
-        enemiesZone.Clear();
+        List<Circle> enemiesZone = new List<Circle>();
 
         enemiesZone.AddRange(
                 enemies.Select(enemy => 
-                    new Circle(radiusEnemiesZone, enemy.position.x, enemy.position.z)));
+                    new Circle(radiusEnemiesZone, enemy.transform.position.x, enemy.transform.position.z)));
 
         return enemiesZone;
     }
@@ -100,8 +92,45 @@ public class EnemyManager : MonoBehaviour
 
     private void HandleInstantiateBullet(GameObject bullet)
     {
-        MoveTo moveTo = bullet.GetComponent<MoveTo>();
-        moveTo.Target = player;
-        moviesToPlayer.Add(moveTo);
+        AcceptMoveTo(bullet);
+    }
+
+    private void HandleSpawnStaskEnemy(List<GameObject> enemies)
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<BlueEnemy>().Health.OnDead += HandleEnemyDead;
+
+            AcceptMoveTo(enemy);
+            AcceptSpawnerBullet(enemy);
+        }
+    }
+
+    private void HandleEnemyDead()
+    {
+
+    }
+
+    private bool AcceptSpawnerBullet(GameObject obj)
+    {
+        if (obj.TryGetComponent(out SpawnerBullet spawnerBullet))
+        {
+            spawnerBullet.OnInstantiateBullet += HandleInstantiateBullet;
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool AcceptMoveTo(GameObject obj)
+    {
+        if (obj.TryGetComponent(out MoveTo moveTo))
+        {
+            moveTo.Target = player;
+            moviesToPlayer.Add(moveTo);
+            return true;
+        }
+
+        return false;
     }
 }

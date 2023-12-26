@@ -8,7 +8,7 @@ public class DeadTimer : MonoBehaviour
 
     private void Start()
     {
-        destroyable = destroyable ?? GetComponent<Destroyable>();
+        destroyable = destroyable ? destroyable : GetComponent<Destroyable>();
 
         StartCoroutine(Deading());
     }

@@ -10,8 +10,8 @@ public class TeleportFromOutside : MonoBehaviour
 
     private void Start()
     {
-        playerMove = playerMove ?? FindObjectOfType<PlayerMove>();
-        enemyManager = enemyManager ?? FindObjectOfType<EnemyManager>();
+        playerMove = playerMove ? playerMove : FindObjectOfType<PlayerMove>();
+        enemyManager = enemyManager ? enemyManager : FindObjectOfType<EnemyManager>();
 
         playerMove.OnGoOutside += HandleGoOutside;
 
