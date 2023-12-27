@@ -7,10 +7,10 @@ public class SpawnerEnemy : MonoBehaviour
 {
     [SerializeField] private Transform[] enemyPrefabs;
 
-    [SerializeField] private float startInterval = 10.0f;
-    [SerializeField] private float decrementInterval = 2.0f;
-    [SerializeField] private float minInterval = 6.0f;
-    [SerializeField] private int maxEnemies = 30;
+    [SerializeField, Range(0, 30)] private float startInterval = 10.0f;
+    [SerializeField, Range(0, 10)] private float decrementInterval = 2.0f;
+    [SerializeField, Range(0.3f, 30)] private float minInterval = 6.0f;
+    [SerializeField, Range(0, 200)] private int maxEnemies = 30;
 
     public List<GameObject> enemies = new List<GameObject>(); 
 
@@ -73,6 +73,7 @@ public class SpawnerEnemy : MonoBehaviour
 
     public void Despawn(GameObject who)
     {
+        GameObject.Destroy(who);
         enemies.Remove(who);
     }
 }

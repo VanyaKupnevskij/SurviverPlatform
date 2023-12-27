@@ -3,7 +3,8 @@ using UnityEngine;
 public enum WhoDamagedType
 {
     Player,
-    Enemy
+    Enemy,
+    Wall
 }
 
 public class Bullet : MonoBehaviour

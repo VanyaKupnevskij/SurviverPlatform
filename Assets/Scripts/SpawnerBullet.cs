@@ -53,6 +53,12 @@ public class SpawnerBullet : MonoBehaviour
         bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
     }
 
+    public void Fire(Vector3 direction)
+    {
+        GameObject bullet = pool.Get();
+        bullet.transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(direction, Vector3.up));
+    }
+
     public void IntervalFire()
     {
         if (_timerFire >= intervalFire)

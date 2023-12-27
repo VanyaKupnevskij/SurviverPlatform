@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 3710686658555457255}
   - component: {fileID: 1038660453549987012}
   - component: {fileID: 4264173018113011408}
+  - component: {fileID: 7196765621575596786}
   - component: {fileID: 5181181534347513235}
   - component: {fileID: 6130519544860592683}
   - component: {fileID: 2452030171789272561}
-  - component: {fileID: 8627332868563410354}
+  - component: {fileID: 4784671546582190186}
+  - component: {fileID: -8490716406638113426}
   m_Layer: 0
   m_Name: BulletPlayer
   m_TagString: Untagged
@@ -88,6 +90,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &7196765621575596786
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289062978087831282}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!135 &5181181534347513235
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -133,9 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddadd2f6d1d4e214d96394854b1a13c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDead: 2.5
+  timeToDead: 2
   destroyable: {fileID: 6130519544860592683}
---- !u!114 &8627332868563410354
+--- !u!114 &4784671546582190186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,12 +173,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 4289062978087831282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0950de6bf8b8d8c4c88aa6be2ebdb43f, type: 3}
+  m_Script: {fileID: 11500000, guid: 572f11f749a51ec4e8b1ea886647b620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
   whoDamaged: 1
   destroyable: {fileID: 6130519544860592683}
+--- !u!114 &-8490716406638113426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289062978087831282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602b69bcfef0b2249b6677bf42854f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 7196765621575596786}
+  speed: 4
 --- !u!1 &6406211244611526133
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +267,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.33
+  m_Time: 0.12
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3

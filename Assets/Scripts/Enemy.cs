@@ -6,8 +6,11 @@ public abstract class Enemy : MonoBehaviour
 
     public Destroyable destroyable;
 
-    public void Constructor()
+    public void Constructor(float health = 100)
     {
+        Health.maxValue = health;
+        Health.Value = health;
+
         destroyable.OnTakeDamage += Health.TakeDamage;
         destroyable.OnDestorySelf += Health.Dead;
     }

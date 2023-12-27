@@ -1,15 +1,17 @@
 using System;
+using UnityEngine;
 
 public class Health 
 {
     public float maxValue = 100;
-    public float Value { get; private set; }
+    public float Value { get; set; }
 
     public Action OnDead;
     public Action<float> OnChange;
 
     public Health(float value)
     {
+        maxValue = value;
         Value = value;
         OnDead += () => { };
         OnChange += (val) => { };

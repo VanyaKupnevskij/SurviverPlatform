@@ -7,9 +7,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private SpawnerEnemy spawnerEnemy;
     [SerializeField] private Transform voidTransform;
     [SerializeField] private Transform player;
-    [SerializeField] private float radiusEnemiesZone = 2.5f;
-    [SerializeField] private float radiusPlatform = 5.0f;
-    [SerializeField] private float radiusVoidTargeted = 1.0f;
+    [SerializeField, Range(0, 6)] private float radiusEnemiesZone = 2.5f;
+    [SerializeField, Range(0, 10)] private float radiusPlatform = 5.0f;
+    [SerializeField, Range(0, 3)] private float radiusVoidTargeted = 1.0f;
 
     private List<MoveTo> moviesToPlayer = new List<MoveTo>();
 
@@ -23,6 +23,26 @@ public class EnemyManager : MonoBehaviour
         moviesToPlayer.AddRange(moveisToPlayerObject.Where(moveTo => moveTo.whoFollow == WhoFollow.Player));
 
         moviesToPlayer.ForEach(enemy => enemy.Target = player);
+    }
+
+    public GameObject GetClosestEnemyTo(Vector3 point)
+    {
+        GameObject resultEnemy = null;
+        float minDistance = Mathf.Infinity;
+        float dist = 0;
+
+        foreach (GameObject enemy in spawnerEnemy.enemies)
+        {
+            dist = Vector3.SqrMagnitude(enemy.transform.position - point);
+
+            if (minDistance > dist)
+            {
+                minDistance = dist;
+                resultEnemy = enemy;
+            }
+        }
+
+        return resultEnemy;
     }
 
     public void SetVoidTarget(Vector3 voidPoint)

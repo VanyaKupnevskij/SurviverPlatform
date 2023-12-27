@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private CharacterController controller;
-    [SerializeField] private float speedMove = 1.5f;
-    [SerializeField] private float speedRotate = 7.0f;
+    [SerializeField, Range(0, 50)] private float speedMove = 1.5f;
+    [SerializeField, Range(0.2f, 30)] private float speedRotate = 7.0f;
     [SerializeField] private PlayerInput playerInput;
 
     public Action<Vector3> OnGoOutside;
