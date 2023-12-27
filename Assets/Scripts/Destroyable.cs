@@ -9,6 +9,7 @@ public class Destroyable : MonoBehaviour
     public void InitSelf()
     {
         gameObject.SetActive(true);
+        OnDestorySelf += () => { };
     }
     
     public void DestroySelf()

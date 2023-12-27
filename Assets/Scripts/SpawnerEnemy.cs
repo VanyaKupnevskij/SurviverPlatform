@@ -12,8 +12,9 @@ public class SpawnerEnemy : MonoBehaviour
     [SerializeField] private float minInterval = 6.0f;
     [SerializeField] private int maxEnemies = 30;
 
+    public List<GameObject> enemies = new List<GameObject>(); 
+
     public Action<List<GameObject>> OnSpawnStack;
-    public List<GameObject> enemies = new List<GameObject>();
 
     private float _timerSpawn = 0.0f;
     private float currentInterval = 0.0f;
@@ -22,6 +23,8 @@ public class SpawnerEnemy : MonoBehaviour
     {
         currentInterval = startInterval + decrementInterval;
         _timerSpawn = currentInterval;
+
+        OnSpawnStack += (list) => { };
     }
 
     private void Update()
@@ -67,4 +70,9 @@ public class SpawnerEnemy : MonoBehaviour
 
         OnSpawnStack(stackEnemies);
     } 
+
+    public void Despawn(GameObject who)
+    {
+        enemies.Remove(who);
+    }
 }

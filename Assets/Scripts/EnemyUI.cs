@@ -11,7 +11,7 @@ public class EnemyUI : MonoBehaviour
 
     private void Start()
     {
-        enemy = enemy ?? GetComponent<Enemy>();
+        enemy = enemy ? enemy : GetComponent<Enemy>();
 
         enemy.Health.OnChange += HandleChangeHP;
     }

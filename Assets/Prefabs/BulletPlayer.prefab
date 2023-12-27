@@ -11,14 +11,12 @@ GameObject:
   - component: {fileID: 3710686658555457255}
   - component: {fileID: 1038660453549987012}
   - component: {fileID: 4264173018113011408}
-  - component: {fileID: 3124358123488584563}
-  - component: {fileID: 3841506990506456790}
   - component: {fileID: 5181181534347513235}
   - component: {fileID: 6130519544860592683}
   - component: {fileID: 2452030171789272561}
-  - component: {fileID: 4409521017873488514}
+  - component: {fileID: 8627332868563410354}
   m_Layer: 0
-  m_Name: BulletEnemy
+  m_Name: BulletPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8f05751f77bc9ba4e8261bd8f356e88b, type: 2}
+  - {fileID: 2100000, guid: 158e2f8d41b696d42a9bb82141080203, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,46 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!195 &3124358123488584563
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4289062978087831282}
-  m_Enabled: 1
-  m_AgentTypeID: -1372625422
-  m_Radius: 0.32
-  m_Speed: 1.2
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0.13
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.0000001
-  m_BaseOffset: 0.50000006
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &3841506990506456790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4289062978087831282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d5f98b8e257de64ca46a40d5949e93f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 3124358123488584563}
-  extraRotationSpeed: 5
-  minDistanceVoid: 1
-  canFollowVoid: 1
-  whoFollow: 0
-  destroyable: {fileID: 6130519544860592683}
 --- !u!135 &5181181534347513235
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -175,9 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddadd2f6d1d4e214d96394854b1a13c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDead: 7
+  timeToDead: 2.5
   destroyable: {fileID: 6130519544860592683}
---- !u!114 &4409521017873488514
+--- !u!114 &8627332868563410354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,11 +144,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4289062978087831282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bc1f7ac96de6934c8838367e8fc4a22, type: 3}
+  m_Script: {fileID: 11500000, guid: 0950de6bf8b8d8c4c88aa6be2ebdb43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
-  whoDamaged: 0
+  damage: 15
+  whoDamaged: 1
   destroyable: {fileID: 6130519544860592683}
 --- !u!1 &6406211244611526133
 GameObject:

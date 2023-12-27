@@ -6,10 +6,9 @@ public class BlueEnemy : Enemy
 
     private void Start()
     {
-        spawnerBullet = spawnerBullet ? spawnerBullet : GetComponent<SpawnerBullet>();
+        Constructor();
 
-        destroyable.OnTakeDamage += Health.TakeDamage;
-        destroyable.OnDestorySelf += Health.Dead;
+        spawnerBullet = spawnerBullet ? spawnerBullet : GetComponent<SpawnerBullet>();
 
         spawnerBullet.EnabledIntervalFire = true;
     }   

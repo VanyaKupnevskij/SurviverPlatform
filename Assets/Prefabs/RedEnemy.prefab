@@ -300,6 +300,8 @@ GameObject:
   - component: {fileID: 3138189708051551484}
   - component: {fileID: 8090533734449941630}
   - component: {fileID: 5161072315735404071}
+  - component: {fileID: 6597144724591807276}
+  - component: {fileID: 8781534221237742499}
   m_Layer: 0
   m_Name: RedEnemy
   m_TagString: Enemy
@@ -436,6 +438,33 @@ MonoBehaviour:
   damage: 15
   whoDamaged: Player
   destroyable: {fileID: 8090533734449941630}
+--- !u!114 &6597144724591807276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990095420994192777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d551896377125d448014d448e3b5ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyable: {fileID: 8090533734449941630}
+--- !u!114 &8781534221237742499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990095420994192777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d01a2819e33f05478c789e0d6521541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderHP: {fileID: 851033088680398476}
+  enemy: {fileID: 6597144724591807276}
 --- !u!1 &6273085898916866115
 GameObject:
   m_ObjectHideFlags: 0

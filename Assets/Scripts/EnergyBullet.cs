@@ -4,6 +4,10 @@ public class EnergyBullet : Bullet
 {
     protected override void DamageTriggered(Collider other)
     {
-        other.GetComponent<DestroyablePlayer>()?.DecreaseEnergy(damage);
+        if (other.CompareTag(whoDamaged.ToString()))
+        {
+            other.GetComponent<DestroyablePlayer>()?.DecreaseEnergy(damage);
+            destroyable.DestroySelf();
+        }
     }
 }

@@ -1,12 +1,9 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public Health Health { get; set; } = new Health();
-    public Energy Energy { get; set; } = new Energy();
+    public Energy Energy { get; set; } = new Energy(50);
 
     public PlayerMove playerMove;
     public DestroyablePlayer playerDestroyable;

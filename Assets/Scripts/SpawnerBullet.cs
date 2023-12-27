@@ -30,6 +30,8 @@ public class SpawnerBullet : MonoBehaviour
             (obj) => obj.GetComponent<Destroyable>().DestroySelf(), 
             (obj) => Destroy(obj), 
             false, capacity, capacity);
+
+        OnInstantiateBullet += (obj) => { };
     }
 
     private void Update()

@@ -20,6 +20,8 @@ public class PlayerMove : MonoBehaviour
     {
         controller = controller ? controller : GetComponent<CharacterController>();
         playerInput = playerInput ? playerInput : GetComponent<PlayerInput>();
+
+        OnGoOutside += (vec) => { };
     }
 
     void Update()

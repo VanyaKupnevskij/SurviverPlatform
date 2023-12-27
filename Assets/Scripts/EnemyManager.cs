@@ -99,16 +99,16 @@ public class EnemyManager : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
-            enemy.GetComponent<BlueEnemy>().Health.OnDead += HandleEnemyDead;
+            enemy.GetComponent<Enemy>().Health.OnDead += () => { HandleEnemyDead(enemy); };
 
             AcceptMoveTo(enemy);
             AcceptSpawnerBullet(enemy);
         }
     }
 
-    private void HandleEnemyDead()
+    private void HandleEnemyDead(GameObject enemy)
     {
-
+        spawnerEnemy.Despawn(enemy);
     }
 
     private bool AcceptSpawnerBullet(GameObject obj)

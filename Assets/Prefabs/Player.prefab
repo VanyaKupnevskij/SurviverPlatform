@@ -210,6 +210,8 @@ GameObject:
   - component: {fileID: 1958081463643464462}
   - component: {fileID: 1577140548413598845}
   - component: {fileID: 7904329609647661235}
+  - component: {fileID: 7331806661963509425}
+  - component: {fileID: 2781563465966612004}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -390,6 +392,34 @@ MonoBehaviour:
   textUlta: {fileID: 7655100244804303899}
   textDead: {fileID: 6696743141309740766}
   playerManager: {fileID: 0}
+--- !u!114 &7331806661963509425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2440189617380520560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f03d5877f9151547b6f2f5e5a4722f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnerBullet: {fileID: 2781563465966612004}
+--- !u!114 &2781563465966612004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2440189617380520560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dad228433dde4149a75f4768b082d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefub: {fileID: 4289062978087831282, guid: 9db805d1a86634b43bfc8bd87d2bdadf, type: 3}
+  capacity: 50
+  intervalFire: 0.3
 --- !u!1 &2821553218958570524
 GameObject:
   m_ObjectHideFlags: 0

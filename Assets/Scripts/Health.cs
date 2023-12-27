@@ -11,11 +11,15 @@ public class Health
     public Health(float value)
     {
         Value = value;
+        OnDead += () => { };
+        OnChange += (val) => { };
     }
 
     public Health()
     {
         Value = maxValue;
+        OnDead += () => { };
+        OnChange += (val) => { };
     }
 
     public void Dead()

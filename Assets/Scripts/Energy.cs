@@ -11,11 +11,15 @@ public class Energy
     public Energy(float value)
     {
         Value = value;
+        OnChange += (val) => { };
+        OnAccamulateUlta += () => { };
     }
     
     public Energy()
     {
         Value = maxValue;
+        OnChange += (val) => { };
+        OnAccamulateUlta += () => { };
     }
 
     public void Increase(float value = 10)
