@@ -47,16 +47,20 @@ public class SpawnerBullet : MonoBehaviour
         return item;
     }
 
-    public void Fire()
+    public GameObject Fire()
     {
         GameObject bullet = pool.Get();
         bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
+
+        return bullet;
     }
 
-    public void Fire(Vector3 direction)
+    public GameObject Fire(Vector3 direction)
     {
         GameObject bullet = pool.Get();
         bullet.transform.SetPositionAndRotation(transform.position, Quaternion.LookRotation(direction, Vector3.up));
+
+        return bullet;
     }
 
     public void IntervalFire()

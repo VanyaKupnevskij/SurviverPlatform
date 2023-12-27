@@ -49,6 +49,8 @@ public class EnemyManager : MonoBehaviour
     {
         foreach (var enemy in moviesToPlayer)
         {
+            if (enemy == null) continue;
+
             if (Vector3.SqrMagnitude(enemy.transform.position - voidPoint) < radiusVoidTargeted * radiusVoidTargeted)
             {
                 enemy.SetFollowVoid(Instantiate(voidTransform, voidPoint, Quaternion.identity));
@@ -74,6 +76,11 @@ public class EnemyManager : MonoBehaviour
                 limitCounter++ < Limit_Search);
 
         return result;
+    }
+
+    public void DestroyAllEnemy()
+    {
+        spawnerEnemy.DespawnAll();
     }
 
     private List<Circle> ScanEnemiesZone(List<GameObject> enemies)

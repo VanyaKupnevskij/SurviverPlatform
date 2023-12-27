@@ -42,4 +42,16 @@ public class Energy
         if (Value < 0)
             Value = 0;
     }
+
+    public bool Ulta()
+    {
+        if (Value >= maxValue)
+        {
+            Value = 0;
+            OnChange(Value);
+            return true;
+        }
+
+        return false;
+    }
 }

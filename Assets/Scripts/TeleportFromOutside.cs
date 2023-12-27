@@ -40,5 +40,4 @@ public class TeleportFromOutside : MonoBehaviour
             return startPlayerPosition;
         }
     }
-
 }

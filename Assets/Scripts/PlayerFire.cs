@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class PlayerFire : MonoBehaviour
 {
-    [SerializeField] private SpawnerBullet spawnerBullet;
+    [SerializeField] private SpawnerBulletPlayer spawnerBullet;
     [SerializeField] private EnemyManager enemyManager;
+    [SerializeField] private Player player;
 
     private void Start()
     {
-        spawnerBullet = spawnerBullet ? spawnerBullet : GetComponent<SpawnerBullet>();
+        spawnerBullet = spawnerBullet ? spawnerBullet : GetComponent<SpawnerBulletPlayer>();
         enemyManager = enemyManager ? enemyManager : FindObjectOfType<EnemyManager>();
     }
 
@@ -26,7 +27,9 @@ public class PlayerFire : MonoBehaviour
 
         if (closestEnemy != null)
         {
-            spawnerBullet.Fire(closestEnemy.transform.position - transform.position);
+            float chance = 100 - (player.Health.Value / player.Health.maxValue * 100) + 20;
+            chance = chance > 100 ? 100 : chance;
+            spawnerBullet.FireWithChance(closestEnemy.transform.position - transform.position, chance);
         }
         else
         {
