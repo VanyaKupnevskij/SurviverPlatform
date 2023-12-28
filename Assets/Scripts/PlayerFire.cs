@@ -18,6 +18,9 @@ public class PlayerFire : MonoBehaviour
             Input.GetMouseButtonDown(1))
         {
             Fire();
+        } else if (Input.GetKeyDown(KeyCode.F))
+        {
+            player.Ulta();
         }
     }
 
